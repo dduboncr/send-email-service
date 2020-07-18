@@ -1,27 +1,38 @@
 {
-    "name": "send-email-service",
-    "version": "0.0.0",
-    "private": true,
-    "scripts": {
-        "start": "node app.js",
-        "dev": "DEBUGGER_ARGS='--inspect=0.0.0.0:3000 --preserve-symlinks' npm run nodemon",
-        "nodemon": "nodemon"
+  "name": "send-email-service",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "dev": "DEBUGGER_ARGS='--inspect=0.0.0.0:3000 --preserve-symlinks' npm run nodemon",
+    "nodemon": "nodemon",
+    "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^7.2.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "nconf": "^0.10.0",
+    "nodemailer": "^6.4.10"
+  },
+  "devDependencies": {
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "nodemon": "^2.0.4",
+    "prettier": "2.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pretest"
     },
-    "dependencies": {
-        "@sendgrid/mail": "^7.2.1",
-        "cookie-parser": "~1.4.4",
-        "debug": "~2.6.9",
-        "express": "~4.16.1",
-        "http-errors": "~1.6.3",
-        "morgan": "~1.9.1",
-        "nconf": "^0.10.0",
-        "nodemailer": "^6.4.10"
-    },
-    "devDependencies": {
-        "eslint": "^7.4.0",
-        "eslint-config-airbnb-base": "^14.2.0",
-        "eslint-plugin-import": "^2.22.0",
-        "nodemon": "^2.0.4",
-        "prettier": "2.0.5"
+    "lint-staged": {
+      "*.js": [
+        "./node_modules/.bin/eslint — fix”, “git add"
+      ]
     }
+  }
 }
