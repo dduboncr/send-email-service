@@ -1,9 +1,9 @@
-const createError = require('http-errors');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const configs = require('./configs');
+
 const PORT = configs.get('PORT');
 const indexRouter = require('./routes/index');
 
@@ -30,6 +30,7 @@ app.use((error, req, res) => {
   });
 });
 app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
   console.log(`send-email-service listening on port ${PORT}!`);
 });
 
