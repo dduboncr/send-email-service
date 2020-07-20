@@ -2,8 +2,8 @@ const express = require('express');
 
 const router = express.Router();
 
-const handler = require('./handler.nodeMailer');
+const { send } = require('./handler.nodeMailer');
 
-router.post('/', handler.sendemail);
+router.post('/sendemail', send);
 
 module.exports = router;
