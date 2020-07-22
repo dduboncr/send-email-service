@@ -16,4 +16,8 @@ const { send } = require('./handler.sendemail');
  */
 router.post('/api/v1/sendemail', send);
 
+router.get('/', (req, res) => {
+  res.json({ message: 'running express app' });
+});
+
 module.exports = router;
