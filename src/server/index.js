@@ -3,9 +3,10 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 
-const configs = require('./src/configs');
+const configs = require('../configs');
+
 const PORT = configs.get('PORT');
-const indexRouter = require('./src/routes');
+const indexRouter = require('../routes');
 
 const app = express();
 

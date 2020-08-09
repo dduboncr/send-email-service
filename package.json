@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node app.js",
+    "start": "node ./src/server/index.js",
     "dev": "DEBUGGER_ARGS='--inspect=0.0.0.0:3000 --preserve-symlinks' npm run nodemon",
     "nodemon": "nodemon",
     "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix"
