@@ -13,7 +13,7 @@ nconf
     parseValues: true,
   })
   .file({
-    file: path.join(__dirname, '../_config.json'),
+    file: path.join(__dirname, '../../_config.json'),
   });
 
 nconf.defaults(DEFAULTS);

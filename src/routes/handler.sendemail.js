@@ -1,5 +1,5 @@
 const { ok } = require('assert');
-const { sendemail } = require('../lib/sendgrid');
+const { sendemail } = require('../lib/nodemailer');
 
 const send = async (req, res) => {
   const { message, to } = req.body;
@@ -11,7 +11,11 @@ const send = async (req, res) => {
     const result = await sendemail(message, to);
     res.json({ result });
   } catch (error) {
-    res.json({ error: error.message });
+    console.log(error);
+    res.status(error.code).json({
+      message: error.message,
+      errors: error.response.body.errors,
+    });
   }
 };
 
