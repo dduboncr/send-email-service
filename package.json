@@ -27,6 +27,9 @@
     "nodemon": "^2.0.4",
     "prettier": "2.0.5"
   },
+  "author": {
+    "email": "diegodubon47@gmail.com"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "npm run pretest"
