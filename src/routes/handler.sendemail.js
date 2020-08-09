@@ -11,10 +11,8 @@ const send = async (req, res) => {
     const result = await sendemail(message, to);
     res.json({ result });
   } catch (error) {
-    console.log(error);
     res.status(error.code).json({
       message: error.message,
-      errors: error.response.body.errors,
     });
   }
 };
