@@ -16,6 +16,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use((_req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+  next();
+});
+
 app.use('/', indexRouter);
 
 app.use((req, res, next) => {
@@ -24,11 +30,6 @@ app.use((req, res, next) => {
   next(error);
 });
 
-app.use((_req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-  next();
-});
 app.use((error, req, res) => {
   res.status(error.status || 500).json({
     error: {
