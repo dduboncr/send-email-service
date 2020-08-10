@@ -23,6 +23,12 @@ app.use((req, res, next) => {
   error.status = 404;
   next(error);
 });
+
+app.use((_req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+  next();
+});
 app.use((error, req, res) => {
   res.status(error.status || 500).json({
     error: {
